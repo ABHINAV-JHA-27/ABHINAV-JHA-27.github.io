@@ -17,24 +17,29 @@
 
         .row {
             display: -ms-flexbox;
+            /* IE10 */
             display: flex;
             -ms-flex-wrap: wrap;
+            /* IE10 */
             flex-wrap: wrap;
             margin: 0 -16px;
         }
 
         .col-25 {
             -ms-flex: 25%;
+            /* IE10 */
             flex: 25%;
         }
 
         .col-50 {
             -ms-flex: 50%;
+            /* IE10 */
             flex: 50%;
         }
 
         .col-75 {
             -ms-flex: 75%;
+            /* IE10 */
             flex: 75%;
         }
 
@@ -99,7 +104,7 @@
             color: grey;
         }
 
-
+        /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
         @media (max-width: 800px) {
             .row {
                 flex-direction: column-reverse;
@@ -118,7 +123,7 @@
     <div class="row" style="padding:100px 300px;">
         <div class="col-50">
             <div class="container">
-                <form  method="post" style="padding: 25px;">
+                <form action="payment.php" method="post" style="padding: 25px;">
 
                     <div class="row">
                         <div class="col-25">
@@ -126,27 +131,21 @@
 
 
                             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-                            <input type="text" id="fname" name="name" placeholder="John M. Doe">
+                            <input type="text" id="name" name="name" placeholder="John M. Doe">
                             <label for="email"><i class="fa fa-envelope"></i> Email</label>
                             <input type="text" id="email" name="email" placeholder="john@example.com">
                             <input type="hidden" value="<?php echo 'OID'.rand(100,1000);?>" name="orderid">
                             <input type="hidden" value="<?php echo 1;?>" name="amount">
                             <label for="city"><i class="fa fa-mobile"></i> Mobile</label>
-                            <input type="text" id="city" name="mobile" placeholder="Mobile Number">
+                            <input type="text" id="contactno" name="contactno" placeholder="Mobile Number">
                             <label for="adr"><i class="fa fa-address-card-o"></i> Amount</label>
-                            <input type="text" id="adr" name="address" placeholder="100 rupee">
+                            <input type="text" id="aamount" name="address" placeholder="100 Rupess">
+
+
+
                         </div>
 
-                        <div class="razorpay-embed-btn" data-url="https://pages.razorpay.com/pl_HiX5UUf7tpMvcU/view" data-text="Pay Now" data-color="#528FF0" data-size="large">
-                            <script>
-                              (function(){
-                                var d=document; var x=!d.getElementById('razorpay-embed-btn-js')
-                                if(x){ var s=d.createElement('script'); s.defer=!0;s.id='razorpay-embed-btn-js';
-                                s.src='https://cdn.razorpay.com/static/embed_btn/bundle.js';d.body.appendChild(s);} else{var rzp=window['__rzp__'];
-                                rzp && rzp.init && rzp.init()}})();
-                            </script>
-                          </div>
-                              
+                        <input type="submit" value="Pay Now" class="btn">
                 </form>
             </div>
         </div>
